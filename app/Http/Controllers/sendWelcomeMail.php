@@ -11,10 +11,10 @@ class sendWelcomeMail extends Controller
     public function sendWelcomeMail(Request $request)
     {
         $details = [
-        'Name' => "$request->name",
-        'Email' => "$request->email",
+            'Name' => "$request->name",
+            'Email' => "$request->email",
         ];
-        
+
         Mail::to($request->email)->send(new WelcomeMail($details));
 
         return response()->json([
